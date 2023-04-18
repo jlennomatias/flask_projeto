@@ -6,18 +6,21 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
 </head>
-<body>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %} 
-            <ul id="messages" class="list-unstyled">
-            {% for message in messages %}
-                <li class="alert alert-success">{{ message }}</li>
-            {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
-    {% block conteudo %}
-    {% endblock %}
+<body class="container">
+    <div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %} 
+                <ul id="messages" class="list-unstyled">
+                {% for message in messages %}
+                    <li class="alert alert-success">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        {% block conteudo %}
+        {% endblock %}
+    </div>
+    
     <footer class="blockquote-footer">
         <p>&copy; Copyright Carteira de ativos</p>
     </footer>

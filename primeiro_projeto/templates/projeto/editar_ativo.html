@@ -2,23 +2,27 @@
 {% block conteudo %}
     <main>
         <div>
-            <form action="{{ url_for('atualizar_ativo') }}" method="post">
-                <h3>Editar Ativos</h3>
-                <input type="hidden" name="id" value="{{ ativo.id }}">
-                <div class="form-group">
-                    <label for="codigo">Nome do ativo:</label><br>
-                    <input type="text" id="codigo" name="codigo" value="{{ ativo.codigo_ativo }}"><br>
+            <h3>Editar Ativos</h3>
+            <form class="formularioAtivo" action="{{ url_for('atualizar_ativo') }}" method="post">
+                <input type="hidden" name="id" value="{{ id }}">
+                {{ form.csrf_token() }}
+                <div class="form-group inputBox">
+                    {{ form.codigo_ativo.label(class="form-label") }}
+                    {{ form.codigo_ativo(class="form-control") }}
                 </div>
-                <div class="form-group">
-                    <label for="quantidade">quantidade do ativo:</label><br>
-                    <input type="text" id="quantidade" name="quantidade" value="{{ ativo.quantidade }}"><br>
+                <div class="form-group inputBox">
+                    {{ form.quantidade.label(class="form-label") }}
+                    {{ form.quantidade(class="form-control") }}
                 </div>
-                <div class="form-group">
-                    <label for="preco">preco do ativo:</label><br>
-                    <input type="text" id="preco" name="preco" value="{{ ativo.preco }}"><br>
+                <div class="form-group inputBox">
+                    {{ form.preco.label(class="form-label") }}
+                    {{ form.preco(class="form-control") }}
                 </div>
-                <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
+                <div>
+                    {{ form.salvar(class="fbtn btn-primary") }}
+                </div>
             </form>
+            <a class="btn btn-danger" href="{{ url_for('ativos') }}">Voltar</a>
         </div>
     </main>
 {% endblock %}
