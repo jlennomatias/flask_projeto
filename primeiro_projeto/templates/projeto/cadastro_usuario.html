@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% block conteudo %}
+    <main>
+        <div>
+            <h3>Cadastro de usuario</h3>
+            <form action="{{ url_for('cadastro_usuario') }}" method="post">
+                <label for="username">Nome do usuario:</label><br>
+                <input type="text" id="username" name="username"><br>
+                <label for="password">senha:</label><br>
+                <input type="text" id="password" name="password"><br>
+                <button type="submit" class="btn btn-primary btn-cadastro_usuario">cadastro</button>
+            </form>
+        </div>
+    </main>
+{% endblock %}

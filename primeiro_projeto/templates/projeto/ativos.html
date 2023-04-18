@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% block conteudo %}
+    <main>
+            <h3>Ativos</h3>
+            <ul class="ativos">
+                <a href="{{ url_for('cadastrar_ativo') }}">Cadastrar Ativo</a>
+                <table border="2" class="table">
+                    <tr>
+                        <td>Codigo do ativo</td>
+                        <td>quantidade</td>
+                        <td>preço medio</td>
+                    </tr>
+                    {% for ativo in ativos %}
+                        <tr>
+                            <td>{{ ativo.codigo_ativo }}</td>
+                            <td>{{ ativo.quantidade }}</td>
+                            <td>{{ ativo.preco }}</td>
+                            <td><a href="{{ url_for('editar_ativo', id=ativo.id) }}">Editar</a></td>
+                            <td><a href="{{ url_for('deletar_ativo', id=ativo.id) }}">Remover</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </ul>
+        
+    </main>
+{% endblock %}
