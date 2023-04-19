@@ -6,6 +6,11 @@ from flask_bcrypt import generate_password_hash
 from flask_bcrypt import check_password_hash
 
 
+@app.route('/')
+def home():
+    return redirect(url_for('ativos'))
+
+
 @app.route('/user')
 def cria_user():
     form = FormularioUsuario(request.form)
